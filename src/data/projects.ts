@@ -7,27 +7,54 @@ export type Project = {
   color?: string;
 };
 
-// TODO: replace with real projects + image URLs.
-// Aim for 18–28 items for the globe view to look full.
+// thum.io serves screenshots with CORS headers, so Three.js can sample them
+// as textures without tainting the canvas. `viewportWidth/1200` + `crop/1500`
+// gives a consistent 4:5 hero-shot of the live site.
+const shot = (url: string) =>
+  `https://image.thum.io/get/width/1200/crop/1500/viewportWidth/1280/wait/3/${url}`;
+
 export const PROJECTS: Project[] = [
-  { title: "Project One", color: "#3b3b6e" },
-  { title: "Project Two", color: "#6e3b3b" },
-  { title: "Project Three", color: "#3b6e4f" },
-  { title: "Project Four", color: "#6e5a3b" },
-  { title: "Project Five", color: "#5a3b6e" },
-  { title: "Project Six", color: "#3b5a6e" },
-  { title: "Project Seven", color: "#6e3b5a" },
-  { title: "Project Eight", color: "#3b6e6e" },
-  { title: "Project Nine", color: "#6e6e3b" },
-  { title: "Project Ten", color: "#4a3b6e" },
-  { title: "Project Eleven", color: "#6e4a3b" },
-  { title: "Project Twelve", color: "#3b6e4a" },
-  { title: "Project Thirteen", color: "#6e3b6e" },
-  { title: "Project Fourteen", color: "#3b4a6e" },
-  { title: "Project Fifteen", color: "#6e6e6e" },
-  { title: "Project Sixteen", color: "#5a6e3b" },
-  { title: "Project Seventeen", color: "#3b6e5a" },
-  { title: "Project Eighteen", color: "#5a3b3b" },
-  { title: "Project Nineteen", color: "#3b3b3b" },
-  { title: "Project Twenty", color: "#6e5a5a" },
+  {
+    title: "Zach Casting",
+    href: "https://zachcasting.vercel.app/roster",
+    image: shot("https://zachcasting.vercel.app/roster"),
+    color: "#3b3b6e",
+  },
+  {
+    title: "Events",
+    href: "https://events-theta-teal.vercel.app/",
+    image: shot("https://events-theta-teal.vercel.app/"),
+    color: "#3b6e6e",
+  },
+  {
+    title: "Arielle Letters",
+    href: "https://arielleletters.vercel.app/",
+    image: shot("https://arielleletters.vercel.app/"),
+    color: "#d4c4a8",
+  },
+  {
+    title: "Congrats Shihao",
+    href: "https://congratsshihao.vercel.app/",
+    image: shot("https://congratsshihao.vercel.app/"),
+    color: "#6e3b5a",
+  },
+
+  // TODO: add more — drop in more `{ title, href, image: shot(url) }` entries.
+  // Placeholder slots so the sphere stays full while you build out the list:
+  { title: "Coming Soon", color: "#3b6e4f" },
+  { title: "Coming Soon", color: "#6e5a3b" },
+  { title: "Coming Soon", color: "#5a3b6e" },
+  { title: "Coming Soon", color: "#3b5a6e" },
+  { title: "Coming Soon", color: "#6e6e3b" },
+  { title: "Coming Soon", color: "#4a3b6e" },
+  { title: "Coming Soon", color: "#6e4a3b" },
+  { title: "Coming Soon", color: "#3b6e4a" },
+  { title: "Coming Soon", color: "#6e3b6e" },
+  { title: "Coming Soon", color: "#3b4a6e" },
+  { title: "Coming Soon", color: "#6e6e6e" },
+  { title: "Coming Soon", color: "#5a6e3b" },
+  { title: "Coming Soon", color: "#3b6e5a" },
+  { title: "Coming Soon", color: "#5a3b3b" },
+  { title: "Coming Soon", color: "#3b3b3b" },
+  { title: "Coming Soon", color: "#6e5a5a" },
 ];
